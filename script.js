@@ -79,7 +79,7 @@ function solveSudoku(i,j){
             solutionMatrix[i] = [...sudokuMatrix[i]];
         }
 
-        return;
+        return true;
     }
 
     let ni = 0;
@@ -96,17 +96,24 @@ function solveSudoku(i,j){
 
     if(sudokuMatrix[i][j] != 0)
     {
-        solveSudoku(ni,nj);
+        return solveSudoku(ni,nj);
     }else{
         for(let val=1;val<=9;val++)
         {
             if(isValid(i,j,val))
             {
                 sudokuMatrix[i][j] = val;
-                solveSudoku(ni,nj);
-                sudokuMatrix[i][j] = 0;
+                
+                if(solveSudoku(ni,nj))
+                {
+                    return true;
+                }
             }
         }
+
+        sudokuMatrix[i][j] = 0;
+
+        return false;
     }
 }
 
