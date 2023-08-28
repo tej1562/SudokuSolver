@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+}
+
+.sudoku-container{
+    margin: auto;
+    margin-top: 3rem;
+    width: 25vw;
+    height: 45vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sudoku-innerbox{
+    width: calc(100% / 3);
+    height: calc(100% / 3);
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sudoku-cell{
+    width: calc(100% / 3);
+    height: calc(100% / 3);
+    border: 1px dashed rgb(165, 165, 165);
+    outline: none;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    gap: 2rem;
+}
+
+.btn{
+    width: 8rem;
+    height: 2rem;
+}
+
+.solve-btn:hover{
+    background-color: rgb(197, 197, 197);
+}
+
+.warning{
+    margin-top: 2rem;
+    color: red;
+    text-align: center;
+    font-size: 1.1rem;
+    display: none;
+}
+
+.algo-filled{
+    color: blue;
+}
