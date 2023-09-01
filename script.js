@@ -37,7 +37,7 @@ function isValid(x,y,num){
     // Row check
     for(let j=0;j<sudokuMatrix[0].length;j++)
     {
-        if(sudokuMatrix[x][j] == num)
+        if(j != y && sudokuMatrix[x][j] == num)
         {
             return false;
         }
@@ -46,7 +46,7 @@ function isValid(x,y,num){
     // Column check
     for(let i=0;i<sudokuMatrix.length;i++)
     {
-        if(sudokuMatrix[i][y] == num)
+        if(i != x && sudokuMatrix[i][y] == num)
         {
             return false;
         }
@@ -60,7 +60,10 @@ function isValid(x,y,num){
     {
         for(let j=0;j<3;j++)
         {
-            if(sudokuMatrix[submatI+i][submatJ+j] == num)
+            let row = submatI+i;
+            let col = submatJ+j;
+
+            if(row != x && col != y && sudokuMatrix[row][col] == num)
             {
                 return false;
             }
@@ -173,6 +176,24 @@ function fillSudoku(){
     }
 }
 
+function checkValidSudoku(){
+    for(let i=0;i<sudokuMatrix.length;i++)
+    {
+        for(let j=0;j<sudokuMatrix[0].length;j++)
+        {
+            let val = sudokuMatrix[i][j];
+
+            if(val != 0 && isValid(i,j,val) == false)
+            {
+                console.log(i,j);
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
 function displayWarning(message)
 {
     warningEle.innerText = message;
@@ -209,6 +230,13 @@ solveBtn.addEventListener("click",function(e){
         }
 
         createMatrix();
+        
+        if(checkValidSudoku() == false)
+        {
+            displayWarning("Invalid sudoku : Row, column and sub-matrix must contain unique numbers");
+            return;
+        }
+
         solveSudoku(0,0);
         
         if(solutionMatrix.length == 0)

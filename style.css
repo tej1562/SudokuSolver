@@ -24,15 +24,15 @@ h1{
 .sudoku-innerbox{
     width: calc(100% / 3);
     height: calc(100% / 3);
-    border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid black;
 }
 
 .sudoku-cell{
     width: calc(100% / 3);
     height: calc(100% / 3);
-    border: 1px dashed rgb(165, 165, 165);
+    border: 0.5px solid rgb(125, 125, 125);
     outline: none;
     font-size: 1.3rem;
     text-align: center;
