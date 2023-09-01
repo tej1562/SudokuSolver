@@ -16,7 +16,7 @@ h1{
     margin: auto;
     margin-top: 3rem;
     width: 25vw;
-    height: 45vh;
+    height: 47vh;
     display: flex;
     flex-wrap: wrap;
 }
@@ -63,4 +63,24 @@ h1{
 
 .algo-filled{
     color: blue;
+}
+
+@media screen and (min-width: 1024px){
+    .sudoku-container{
+        width: 27vw;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .sudoku-container{
+        width: 47vw;
+    }
+}
+
+/* Mobile */
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .sudoku-container{
+        width: 67vw;
+    }
 }
