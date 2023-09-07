@@ -14,7 +14,6 @@ h1{
 
 .sudoku-container{
     margin: auto;
-    margin-top: 3rem;
     width: 25vw;
     height: 47vh;
     display: flex;
